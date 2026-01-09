@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>Flow‑Lab DAW</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">FL</div>
+      <div>
+        <div class="title">Flow‑Lab DAW</div>
+        <div class="subtitle" id="subtitle">Recording • Mixer • FX</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="btnNewProject" class="btn ghost">New</button>
+      <button id="btnSaveProject" class="btn">Save</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <div class="row">
+        <h2>Project</h2>
+        <select id="projectSelect"></select>
+      </div>
+      <div class="hint">Use wired headphones to avoid echo/feedback. Bluetooth adds latency.</div>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <h2>Transport</h2>
+        <div class="row">
+          <button id="btnRecord" class="btn">● Record</button>
+          <button id="btnStop" class="btn ghost" disabled>Stop</button>
+          <button id="btnPlay" class="btn ghost" disabled>Play</button>
+        </div>
+      </div>
+
+      <div class="transportGrid">
+        <div class="transportCell">
+          <div class="label">BPM</div>
+          <input id="bpm" type="number" min="40" max="240" value="120">
+        </div>
+        <div class="transportCell">
+          <div class="label">Count‑in</div>
+          <select id="countIn">
+            <option value="0">Off</option>
+            <option value="1" selected>1 bar</option>
+            <option value="2">2 bars</option>
+          </select>
+        </div>
+        <div class="transportCell">
+          <div class="label">Metronome</div>
+          <button id="btnMet" class="btn ghost">Off</button>
+        </div>
+        <div class="transportCell">
+          <div class="label">Master meter</div>
+          <div class="meter"><div id="masterMeter" class="meterFill"></div></div>
+        </div>
+      </div>
+
+      <div class="meta">
+        <span id="recStatus">Idle</span>
+        <span id="timeStatus">00:00</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <h2>Tracks</h2>
+        <button id="btnAddTrack" class="btn ghost">Add empty track</button>
+      </div>
+      <ul id="trackList" class="list"></ul>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <h2>Export</h2>
+        <button id="btnExport" class="btn ghost" disabled>Mixdown (later)</button>
+      </div>
+      <div class="hint">WAV export + timeline editing comes next (Phase 3).</div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
